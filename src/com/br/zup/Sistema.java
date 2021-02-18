@@ -68,6 +68,8 @@ public class Sistema {
             }else if(resposta == 4){
                 Fatura fatura = cadastrarFatura();
                 System.out.println(fatura);
+            }else if (resposta == -1){
+                continuar = false;
             }
         }
         return continuar;
