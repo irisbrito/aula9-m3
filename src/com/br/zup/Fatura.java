@@ -11,6 +11,9 @@ public class Fatura {
         this.dataVencimento = dataVencimento;
     }
 
+    public Fatura(double valor, String dataVencimento) {
+    }
+
     public Consumidor getConsumidor() {
         return consumidor;
     }
@@ -33,5 +36,13 @@ public class Fatura {
 
     public void setDataVencimento(String dataVencimento) {
         this.dataVencimento = dataVencimento;
+    }
+
+    @Override
+    public String toString() {
+        return "Fatura" +
+                "\n consumidor= " + consumidor +
+                "\n valor= " + valor +
+                "\n dataVencimento= " + dataVencimento;
     }
 }
