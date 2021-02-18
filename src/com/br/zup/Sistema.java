@@ -11,7 +11,20 @@ public class Sistema {
         model.append("1 para pesquisar por email do Consumidor\n");
         model.append("2 para cadastrar consumidor\n");
         model.append("3 para pesquisar consumidor\n");
+        model.append("4 para cadastrar fatura\n");
+
         System.out.println(model.toString());
+    }
+
+    public static Fatura cadastrarFatura() throws Exception{
+        System.out.println("Digite o email");
+        String email = new Scanner(System.in).nextLine();
+        System.out.println("Digite o valor da fatura");
+        double valor =  new Scanner(System.in).nextDouble();
+        System.out.println("Digite a data de vencimento");
+        String dataVencimento =  new Scanner(System.in).nextLine();
+        Fatura fatura = ServicoFatura.cadastrarFatura(email, valor, dataVencimento);
+        return fatura;
     }
 
     public static Fatura pesquisarFatura() throws Exception {
@@ -52,6 +65,9 @@ public class Sistema {
             }else if(resposta == 3){
                 Consumidor consumidor = pesquisarConsumidor();
                 System.out.println(consumidor);
+            }else if(resposta == 4){
+                Fatura fatura = cadastrarFatura();
+                System.out.println(fatura);
             }
         }
         return continuar;
