@@ -10,6 +10,7 @@ public class Sistema {
         model.append("-1 para sair\n");
         model.append("1 para pesquisar por email do Consumidor\n");
         model.append("2 para cadastrar consumidor\n");
+        model.append("3 para pesquisar consumidor\n");
         System.out.println(model.toString());
     }
 
@@ -30,6 +31,13 @@ public class Sistema {
         return ServicoConsumidor.cadastrarConsumidor(nomeCompleto, email);
     }
 
+    public static Consumidor pesquisarConsumidor() throws Exception{
+        System.out.println("Digite o email do consumidor");
+        String email = new Scanner(System.in).nextLine();
+
+        return ServicoConsumidor.pesquisarConsumidor(email);
+    }
+
     public static boolean executar() throws Exception {
         boolean continuar = true;
         while (continuar){
@@ -40,6 +48,9 @@ public class Sistema {
                 System.out.println(fatura);
             }else if(resposta == 2){
                 Consumidor consumidor = cadastrarConsumidor();
+                System.out.println(consumidor);
+            }else if(resposta == 3){
+                Consumidor consumidor = pesquisarConsumidor();
                 System.out.println(consumidor);
             }
         }
