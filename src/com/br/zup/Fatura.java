@@ -40,9 +40,12 @@ public class Fatura {
 
     @Override
     public String toString() {
-        return "Fatura" +
-                "\n consumidor= " + consumidor +
-                "\n valor= " + valor +
-                "\n dataVencimento= " + dataVencimento;
+        StringBuilder model = new StringBuilder();
+        model.append("\n---------------------------------------\n");
+        model.append("Consumidor: \n"+consumidor);
+        model.append("\nValor da fatura: "+valor);
+        model.append("\nData de Vencimento: "+dataVencimento);
+        model.append("\n---------------------------------------\n");
+        return model.toString();
     }
 }
