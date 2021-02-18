@@ -12,7 +12,14 @@ public class ServicoFatura {
                 return fatura;
             }
         }
-        throw new Exception("Fatura não exite");
+        throw new Exception("Fatura não existe");
+    }
+
+    public static Fatura cadastrarFatura(String email, double valor, String dataVencimento) throws Exception{
+        ServicoConsumidor.pesquisarConsumidor(email);
+        Fatura fatura = new Fatura(valor,dataVencimento);
+        faturas.add(fatura);
+        return fatura;
     }
 
 }
