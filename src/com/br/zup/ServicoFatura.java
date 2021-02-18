@@ -6,13 +6,14 @@ import java.util.List;
 public class ServicoFatura {
     private static List<Fatura> faturas = new ArrayList<>();
 
-    public static Fatura pesquisarFaturaPeloEmailDoConsumidor(String email) throws Exception {
+    public static List<Fatura> pesquisarFaturaPeloEmailDoConsumidor(String email){
+        List<Fatura> faturasDoConsumidor = new ArrayList<>();
         for (Fatura fatura : faturas){
             if(fatura.getConsumidor().getEmail().equalsIgnoreCase(email)){
-                return fatura;
+                 faturasDoConsumidor.add(fatura);
             }
         }
-        throw new Exception("Fatura não existe");
+        return faturasDoConsumidor;
     }
 
     public static Fatura cadastrarFatura(String email, double valor, String dataVencimento) throws Exception{
@@ -21,5 +22,7 @@ public class ServicoFatura {
         faturas.add(fatura);
         return fatura;
     }
+
+
 
 }
