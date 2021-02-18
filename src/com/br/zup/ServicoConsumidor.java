@@ -22,4 +22,13 @@ public class ServicoConsumidor {
         consumidores.add(consumidor);
         return consumidor;
     }
+
+    public static Consumidor pesquisarConsumidor(String email) throws Exception {
+        for(Consumidor consumidor : consumidores){
+            if(consumidor.getEmail().equals(email)){
+                return consumidor;
+            }
+        }
+        throw new Exception("Consumidor não encontrado");
+    }
 }
